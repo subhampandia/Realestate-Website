@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium Properties - Luxury Real Estate</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md">
+        <div class="logo">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+          </svg>
+          Premium Properties
+        </div>
+
+        <button
+          class="navbar-toggler d-md-none text-white"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          ☰
+        </button>
+
+        <div class="collapse navbar-collapse ms-auto" id="navMenu">
+          <ul class="nav-links navbar-nav ms-auto">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#properties">Properties</a></li>
+            <li><a href="#agents">Agents</a></li>
+            <li><a href="#review">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+   <section class="hero" id="home">
+   <div id="heroCarousel" class="carousel slide">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <div class="hero-slide" style="background-image: url('./images/banner.jpg');"></div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="hero-slide" style="background-image: url('./images/banner2.jpg');"></div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="hero-slide" style="background-image: url('./images/banner3.jpg');"></div>
+      </div>
+
+    </div>
+
+    <!-- LEFT ARROW -->
+    <button class="carousel-control-prev hero-arrow"
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <!-- RIGHT ARROW -->
+    <button class="carousel-control-next hero-arrow"
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+  <!-- Hero Content -->
+  <div class="hero-content">
+    <h1>Find Your Dream Home in Bhubaneswar</h1>
+    <p>Premium properties in Patia, Jayadev Vihar & Chandrasekharpur</p>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Enter location or property type..." />
+
+      <select id="priceFilter">
+        <option value="all">Any Budget</option>
+        <option value="0-5000000">Under ₹50 Lakhs</option>
+        <option value="5000000-10000000">₹50L – ₹1 Cr</option>
+        <option value="10000000-20000000">₹1 Cr – ₹2 Cr</option>
+        <option value="20000000+">₹2 Cr+</option>
+      </select>
+
+      <select id="bedroomFilter">
+        <option value="all">Any Beds</option>
+        <option value="1">1+ Bed</option>
+        <option value="2">2+ Beds</option>
+        <option value="3">3+ Beds</option>
+        <option value="4">4+ Beds</option>
+      </select>
+
+      <button onclick="filterProperties()">Search</button>
+    </div>
+  </div>
+</section>
+
+
+    <section class="stats">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>500+</h3>
+          <p>Properties Listed</p>
+        </div>
+        <div class="stat-item">
+          <h3>1200+</h3>
+          <p>Happy Clients</p>
+        </div>
+        <div class="stat-item">
+          <h3>50+</h3>
+          <p>Expert Agents</p>
+        </div>
+        <div class="stat-item">
+          <h3>15+</h3>
+          <p>Years Experience</p>
+        </div>
+      </div>
+    </section>
+    <section class="container" id="about">
+      <h2 class="section-title">About Us</h2>
+
+      <div style="max-width: 900px; margin: auto; text-align: center">
+        <p style="font-size: 1.1rem; color: #555; line-height: 1.8">
+          Premium Properties is a trusted real estate platform based in
+          Bhubaneswar, helping buyers find premium apartments, villas, and
+          investment properties across prime locations such as Patia, Jayadev
+          Vihar, Chandrasekharpur, and Infocity.
+        </p>
+
+        <p style="margin-top: 20px; font-size: 1.05rem; color: #666">
+          With years of experience and a customer-first approach, we ensure
+          transparency, legal clarity, and the best value for your investment.
+        </p>
+      </div>
+    </section>
+
+    <div class="container" id="properties">
+      <h2 class="section-title">Featured Properties</h2>
+      <div class="properties-grid" id="propertiesGrid"></div>
+    </div>
+
+    <!--Agent Section-->
+    <section class="container " id="agents">
+      <h2 class="section-title">Meet Our Expert Agents</h2>
+
+      <div class="row g-lg-5 justify-content-center">
+        <!-- Agent 1 -->
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm border-0 rounded-4 agent-card">
+            <img
+              src="images/boss.png"
+              class="card-img-top rounded-top-4"
+              alt="Male Agent"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">Rahul Sharma</h5>
+              <p class="text-muted">Senior Property Consultant</p>
+              <p>8+ years experience in Bhubaneswar real estate</p>
+
+              <div class="d-flex justify-content-center gap-2">
+                <a
+                  href="tel:+919999999999"
+                  class="btn btn-outline-primary btn-sm"
+                  >📞 Call</a
+                >
+                <a
+                  href="https://wa.me/919999999999"
+                  class="btn btn-success btn-sm"
+                  >💬 WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm border-0 rounded-4 agent-card">
+            <img
+              src="images/boss.png"
+              class="card-img-top rounded-top-4"
+              alt="Male Agent"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">Ankit Pathak</h5>
+              <p class="text-muted">Senior Property Consultant</p>
+              <p>6+ years experience in Bhubaneswar real estate</p>
+
+              <div class="d-flex justify-content-center gap-2">
+                <a
+                  href="tel:+919999999999"
+                  class="btn btn-outline-primary btn-sm"
+                  >📞 Call</a
+                >
+                <a
+                  href="https://wa.me/919999999999"
+                  class="btn btn-success btn-sm"
+                  >💬 WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm border-0 rounded-4 agent-card">
+            <img
+              src="images/woman.png"
+              class="card-img-top rounded-top-4"
+              alt="Male Agent"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">Roohi Sharma</h5>
+              <p class="text-muted">Property Consultant</p>
+              <p>7+ years experience in Bhubaneswar real estate</p>
+
+              <div class="d-flex justify-content-center gap-2">
+                <a
+                  href="tel:+919999999999"
+                  class="btn btn-outline-primary btn-sm"
+                  >📞 Call</a
+                >
+                <a
+                  href="https://wa.me/919999999999"
+                  class="btn btn-success btn-sm"
+                  >💬 WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+        </div><div class="col-md-4">
+          <div class="card text-center shadow-sm border-0 rounded-4 agent-card">
+            <img
+              src="images/boss.png"
+              class="card-img-top rounded-top-4"
+              alt="Male Agent"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">Harish Panda</h5>
+              <p class="text-muted">Senior Property Consultant</p>
+              <p>Best for Bachelors and Students</p>
+
+              <div class="d-flex justify-content-center gap-2">
+                <a
+                  href="tel:+919999999999"
+                  class="btn btn-outline-primary btn-sm"
+                  >📞 Call</a
+                >
+                <a
+                  href="https://wa.me/919999999999"
+                  class="btn btn-success btn-sm"
+                  >💬 WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+        </div><div class="col-md-4">
+          <div class="card text-center shadow-sm border-0 rounded-4 agent-card">
+            <img
+              src="images/woman.png"
+              class="card-img-top rounded-top-4"
+              alt="Male Agent"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">Anjali Dash</h5>
+              <p class="text-muted">Senior Property Consultant</p>
+              <p>6+ years experience in Bhubaneswar real estate</p>
+
+              <div class="d-flex justify-content-center gap-2">
+                <a
+                  href="tel:+919999999999"
+                  class="btn btn-outline-primary btn-sm"
+                  >📞 Call</a
+                >
+                <a
+                  href="https://wa.me/919999999999"
+                  class="btn btn-success btn-sm"
+                  >💬 WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Agent 2 -->
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm border-0 rounded-4 agent-card">
+            <img
+              src="images/woman.png"
+              class="card-img-top rounded-top-4"
+              alt="Female Agent"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">Priya Das</h5>
+              <p class="text-muted">Luxury Property Specialist</p>
+              <p>Specialist in Villas & Premium Apartments</p>
+
+              <div class="d-flex justify-content-center gap-2">
+                <a
+                  href="tel:+919888888888"
+                  class="btn btn-outline-primary btn-sm"
+                  >📞 Call</a
+                >
+                <a
+                  href="https://wa.me/919888888888"
+                  class="btn btn-success btn-sm"
+                  >💬 WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Review-->
+    <section class="stats" id="review">
+  <h2 class="section-title text-center mb-4">What Our Clients Say</h2>
+
+  <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="d-flex justify-content-center">
+          <div class="col-md-5">
+            <div class="bg-white p-4 rounded-4 shadow-sm text-center">
+              <p class="fs-5 text-warning">⭐⭐⭐⭐⭐</p>
+              <p>
+                “Premium Properties helped me find my dream apartment in Patia.
+                Smooth process and honest guidance.”
+              </p>
+              <strong>— Ankit Mishra</strong><br />
+              <small class="text-muted">Patia, Bhubaneswar</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+          <div class="col-md-5">
+            <div class="bg-white p-4 rounded-4 shadow-sm text-center">
+              <p class="fs-5 text-warning">⭐⭐⭐⭐⭐</p>
+              <p>
+                “Very professional team. Transparent pricing and excellent support
+                throughout the buying process.”
+              </p>
+              <strong>— Sasmita Rout</strong><br />
+              <small class="text-muted">Jayadev Vihar</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+          <div class="col-md-5">
+            <div class="bg-white p-4 rounded-4 shadow-sm text-center">
+              <p class="fs-5 text-warning">⭐⭐⭐⭐⭐</p>
+              <p>
+                “Best real estate consultants in Bhubaneswar. Highly recommended!”
+              </p>
+              <strong>— Rakesh Panda</strong><br />
+              <small class="text-muted">Chandrasekharpur</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Professional Arrows -->
+    <button class="carousel-control-prev custom-arrow" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next custom-arrow" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</section>
+
+
+    <section class="container" id="contact">
+      <h2 class="section-title">Contact Us</h2>
+
+      <div
+        style="
+          max-width: 700px;
+          margin: auto;
+          background: #f8f9fa;
+          padding: 40px;
+          border-radius: 15px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        "
+      >
+        <form
+          onsubmit="event.preventDefault(); alert('Form submitted successfully!');"
+        >
+          <div style="margin-bottom: 20px">
+            <label>Name</label>
+            <input
+              type="text"
+              required
+              placeholder="Your Name"
+              style="
+                width: 100%;
+                padding: 12px;
+                border-radius: 8px;
+                border: 1px solid #ccc;
+              "
+            />
+          </div>
+
+          <div style="margin-bottom: 20px">
+            <label>Email</label>
+            <input
+              type="email"
+              required
+              placeholder="Your Email"
+              style="
+                width: 100%;
+                padding: 12px;
+                border-radius: 8px;
+                border: 1px solid #ccc;
+              "
+            />
+          </div>
+
+          <div style="margin-bottom: 20px">
+            <label>Phone</label>
+            <input
+              type="tel"
+              required
+              placeholder="Your Phone Number"
+              style="
+                width: 100%;
+                padding: 12px;
+                border-radius: 8px;
+                border: 1px solid #ccc;
+              "
+            />
+          </div>
+
+          <div style="margin-bottom: 25px">
+            <label>Message</label>
+            <textarea
+              rows="4"
+              required
+              placeholder="Your Message"
+              style="
+                width: 100%;
+                padding: 12px;
+                border-radius: 8px;
+                border: 1px solid #ccc;
+              "
+            ></textarea>
+          </div>
+
+          <button type="submit" class="contact-btn" style="width: 100%">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+    <div style="background:#f8f9fa;padding:20px;text-align:center">
+  ✔ RERA Approved &nbsp; | &nbsp; ✔ Verified Listings &nbsp; | &nbsp; ✔ Trusted Since 2009
+</div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Premium Properties</h3>
+          <p>
+            Your trusted partner in finding the perfect home. Excellence in real
+            estate since 2009.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="#home">Home</a>
+          <a href="#properties">Properties</a>
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p>📞 +915444448486</p>
+          <p>✉️ info@premiumproperties.com</p>
+          <p>📍 208,2nd Floor,Market Complex,Unit-4,Bhubaneswar</p>
+        </div>
+        <div class="footer-section">
+          <div class="map-container border border-2">
+              <iframe
+                src="https://www.google.com/maps?q=Esplanade+Mall+Bhubaneswar&output=embed"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
+        </div>
+      </div>
+      <p style="margin-top: 30px; opacity: 0.8">
+        &copy; 2025 Premium Properties. All rights reserved.
+      </p>
+    </footer>
+
+    <div class="modal" id="propertyModal">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" class="modal-image" src="" alt="" />
+        <div class="modal-details">
+          <h2 id="modalTitle"></h2>
+          <p class="property-price" id="modalPrice"></p>
+          <p class="property-location" id="modalLocation"></p>
+          <div class="property-features" id="modalFeatures"></div>
+          <p
+            id="modalDescription"
+            style="margin-top: 20px; line-height: 1.8"
+          ></p>
+          <button
+            class="contact-btn"
+            onclick="alert('Contact form would open here!')"
+          >
+            Contact Agent
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <a
+      href="https://wa.me/919999999999"
+      target="_blank"
+      style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #25d366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+        text-decoration: none;
+      "
+    >
+      💬
+    </a>
+  </body>
+</html>

@@ -1,0 +1,451 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ html {
+     scroll-behavior: smooth;
+ }
+
+ section {
+     scroll-margin-top: 80px;
+     /* Fixes cut-off during scroll */
+ }
+
+ body {
+     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+     line-height: 1.6;
+     color: #333;
+ }
+
+ header {
+     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+     color: white;
+     padding: 1rem 0;
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+ }
+
+ nav {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 20px;
+     display: flex;
+     justify-content: flex-start;
+     align-items: center;
+ }
+
+ .logo {
+     font-size: 1.8rem;
+     font-weight: bold;
+     display: flex;
+     align-items: center;
+     gap: 10px;
+ }
+
+ .nav-links {
+     display: flex;
+     gap: 30px;
+     list-style: none;
+ }
+
+ .nav-links a {
+     color: white;
+     text-decoration: none;
+     transition: opacity 0.3s;
+     font-weight: 500;
+ }
+
+ .nav-links a:hover {
+     opacity: 0.8;
+ }
+
+ .hero {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+
+/* Carousel full height */
+.hero .carousel,
+.hero .carousel-inner,
+.hero .carousel-item {
+  height: 100%;
+}
+
+/* Background slide */
+.hero-slide {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Dark overlay */
+.hero-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Content on top */
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  pointer-events: none;
+}
+.hero-content * {
+  pointer-events: auto; /* allow inputs & button */
+}
+
+/* Smooth fade */
+.carousel-fade .carousel-item {
+  transition: opacity 1.2s ease-in-out;
+}
+.hero-arrow {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  opacity: 0.85;
+  z-index: 5;
+}
+
+.hero-arrow:hover {
+  background: #ffc107;
+  opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+
+
+ .search-bar {
+     background: white;
+     padding: 20px;
+     border-radius: 50px;
+     display: flex;
+     gap: 10px;
+     max-width: 800px;
+     margin: 0 auto;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ }
+
+ .search-bar input,
+ .search-bar select {
+     padding: 12px 20px;
+     border: none;
+     border-radius: 25px;
+     font-size: 1rem;
+     flex: 1;
+     background: #f5f5f5;
+ }
+
+ .search-bar button {
+     padding: 12px 30px;
+     background: #2a5298;
+     color: white;
+     border: none;
+     border-radius: 25px;
+     cursor: pointer;
+     font-weight: bold;
+     transition: background 0.3s;
+ }
+
+ .search-bar button:hover {
+     background: #1e3c72;
+ }
+
+ .container {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 60px 20px;
+ }
+
+ .section-title {
+     text-align: center;
+     font-size: 2.5rem;
+     margin-bottom: 3rem;
+     color: #1e3c72;
+ }
+
+ .properties-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+     gap: 30px;
+     margin-top: 30px;
+ }
+
+ .property-card {
+     background: white;
+     border-radius: 15px;
+     overflow: hidden;
+     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+     transition: transform 0.3s, box-shadow 0.3s;
+     cursor: pointer;
+ }
+
+ .property-card:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+ }
+
+ .property-image {
+     width: 100%;
+     height: 250px;
+     object-fit: cover;
+     position: relative;
+ }
+
+ .property-badge {
+     position: absolute;
+     top: 15px;
+     right: 15px;
+     background: #2a5298;
+     color: white;
+     padding: 5px 15px;
+     border-radius: 20px;
+     font-size: 0.85rem;
+     font-weight: bold;
+ }
+
+ .property-details {
+     padding: 20px;
+ }
+
+ .property-price {
+     font-size: 1.8rem;
+     color: #2a5298;
+     font-weight: bold;
+     margin-bottom: 10px;
+ }
+
+ .property-title {
+     font-size: 1.3rem;
+     margin-bottom: 10px;
+     color: #333;
+ }
+
+ .property-location {
+     color: #666;
+     margin-bottom: 15px;
+     display: flex;
+     align-items: center;
+     gap: 5px;
+ }
+
+ .property-features {
+     display: flex;
+     gap: 20px;
+     padding-top: 15px;
+     border-top: 1px solid #eee;
+ }
+
+ .feature {
+     display: flex;
+     align-items: center;
+     gap: 5px;
+     color: #666;
+     font-size: 0.95rem;
+ }
+
+ .stats {
+     background: #f8f9fa;
+     padding: 60px 20px;
+     text-align: center;
+ }
+
+ .stats-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+     gap: 30px;
+     max-width: 1000px;
+     margin: 0 auto;
+ }
+
+ .stat-item h3 {
+     font-size: 3rem;
+     color: #2a5298;
+     margin-bottom: 10px;
+ }
+
+ .stat-item p {
+     color: #666;
+     font-size: 1.1rem;
+ }
+
+ .custom-arrow {
+     width: 45px;
+     height: 45px;
+     background: white;
+     border-radius: 50%;
+     top: 50%;
+     transform: translateY(-50%);
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+ }
+
+ .carousel-control-prev-icon,
+ .carousel-control-next-icon {
+     filter: invert(1);
+ }
+
+ .custom-arrow:hover {
+     background: #ffc107;
+ }
+
+ footer {
+     background: #1e3c72;
+     color: white;
+     padding: 40px 20px;
+     text-align: center;
+ }
+
+ .footer-content {
+     max-width: 1200px;
+     margin: 0 auto;
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 30px;
+     text-align: left;
+ }
+
+ .footer-section h3 {
+     margin-bottom: 15px;
+     font-size: 1.3rem;
+ }
+
+ .footer-section p,
+ .footer-section a {
+     color: rgba(255, 255, 255, 0.8);
+     text-decoration: none;
+     display: block;
+     margin-bottom: 8px;
+ }
+
+ .footer-section a:hover {
+     color: white;
+ }
+
+ .modal {
+     display: none;
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.8);
+     z-index: 2000;
+     overflow-y: auto;
+ }
+
+ .modal-content {
+     background: white;
+     max-width: 900px;
+     margin: 50px auto;
+     border-radius: 15px;
+     overflow: hidden;
+     position: relative;
+ }
+
+ .modal-close {
+     position: absolute;
+     top: 20px;
+     right: 20px;
+     font-size: 2rem;
+     cursor: pointer;
+     color: white;
+     z-index: 10;
+     background: rgba(0, 0, 0, 0.5);
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .modal-image {
+     width: 100%;
+     height: 400px;
+     object-fit: cover;
+ }
+
+ .modal-details {
+     padding: 30px;
+ }
+
+ /* Agent Card Hover Effect */
+ .agent-card {
+     transition: transform 0.35s ease, box-shadow 0.35s ease;
+     border-radius: 6px;
+ }
+
+ .agent-card:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 20px 45px rgba(28, 26, 26, 0.15);
+ }
+
+ .contact-btn {
+     background: #2a5298;
+     color: white;
+     padding: 15px 40px;
+     border: none;
+     border-radius: 30px;
+     font-size: 1.1rem;
+     cursor: pointer;
+     margin-top: 20px;
+     transition: background 0.3s;
+ }
+
+ .contact-btn:hover {
+     background: #1e3c72;
+ }
+
+ @media (max-width: 768px) {
+     nav {
+         flex-wrap: wrap;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .hero-content h1 {
+         font-size: 2rem;
+     }
+
+     .search-bar {
+         flex-direction: column;
+     }
+
+     .properties-grid {
+         grid-template-columns: 1fr;
+     }
+
+     .nav-links {
+         flex-direction: column;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .navbar-nav {
+         flex-direction: column;
+         gap: 15px;
+         margin-top: 15px;
+     }
+ }
